@@ -1,7 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink } from 'react-router';
+import './pages/NavBar.css';
+import { AuthContext } from '../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+
+    const { user, signOutUser } = use(AuthContext);
+
+    const handleSignOut = () => {
+
+        signOutUser()
+            .then(() => {
+                Swal.fire({
+                    title: "You are signed out",
+                    icon: "success",
+                    draggable: true,
+                    timer: 2000
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+                    timer:1500
+                });
+            })
+    }
+
     return (
         <div className="p-2.5 min-h-[70px] bg-base-100 shadow-sm">
             <div className='flex justify-around md:w-11/12 mx-auto'>
@@ -13,24 +41,27 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link className='text-[17px]' to={'/'}>Home</Link></li>
-                            <li><Link className='text-[17px]' to={'/findmate'}>Find Roommate</Link></li>
-                            <li><Link className='text-[17px]' to={'/listing'}>Browse Listing</Link></li>
-                            <li><Link className='text-[17px]' to={'/mylisting'}>My Listing</Link></li>
+                            <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
+                            <li><NavLink className='text-[17px]' to={'/findroommate'}>Find Roommate</NavLink></li>
+                            <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
+                            <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                         </ul>
                     </div>
                     <Link to={'/'} className="btn btn-ghost text-[24px] md:text-3xl font-extrabold text-[#6F00FF]">Homies</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><Link className='text-[19px]' to={'/'}>Home</Link></li>
-                        <li><Link className='text-[19px]' to={'/findmate'}>Find Roommate</Link></li>
-                        <li><Link className='text-[19px]' to={'/listing'}>Browse Listing</Link></li>
-                        <li><Link className='text-[19px]' to={'/mylisting'}>My Listing</Link></li>
+                        <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
+                        <li><NavLink className='text-[17px]' to={'/findroommate'}>Find Roommate</NavLink></li>
+                        <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
+                        <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    {
+                        user ? <a onClick={handleSignOut} className="btn">Sign Out</a> : <Link to={'/signin'} className="btn">Sign In</Link>
+                    }
+
                 </div>
             </div>
         </div>
