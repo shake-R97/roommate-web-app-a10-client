@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       // protected routes
       {
-        path: '/findroommate',
+        path: '/addtofindroommate',
         element: <PrivateRouteProvider>
               <FindRoommate></FindRoommate>
         </PrivateRouteProvider>

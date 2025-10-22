@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
-    const { createUser } = use(AuthContext);
+    const { createUser , updateUserProfile , setUser } = use(AuthContext);
    
 
     // form handler
@@ -17,6 +17,7 @@ const SignUp = () => {
         const NewUserData = Object.fromEntries(formData.entries());
         const name = formData.get('name');
         const email = formData.get('email');
+        const photo = formData.get('photo');
         const password = formData.get('password');
         console.log(NewUserData);
         console.log(name, email);
@@ -26,7 +27,14 @@ const SignUp = () => {
         createUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
+                updateUserProfile({displayName: name , photoURL: photo})
+                .then(()=> {
+                    setUser({...user , displayName: name , photoURL: photo})
+            })
+                .catch((error)=>{
+                    console.log(error);
+                    setUser(user);
+                })
                 Swal.fire({
                     position: "center",
                     icon: "success",

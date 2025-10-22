@@ -25,7 +25,7 @@ const Navbar = () => {
                     icon: "error",
                     title: "Oops...",
                     text: "Something went wrong!",
-                    timer:1500
+                    timer: 1500
                 });
             })
     }
@@ -42,7 +42,7 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
-                            <li><NavLink className='text-[17px]' to={'/findroommate'}>Find Roommate</NavLink></li>
+                            <li><NavLink className='text-[17px]' to={'/addtofindroommate'}>Add to Find Roommate</NavLink></li>
                             <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
                             <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                         </ul>
@@ -52,19 +52,34 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
-                        <li><NavLink className='text-[17px]' to={'/findroommate'}>Find Roommate</NavLink></li>
+                        <li><NavLink className='text-[17px]' to={'/addtofindroommate'}>Add to Find Roommate</NavLink></li>
                         <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
                         <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <a onClick={handleSignOut} className="btn">Sign Out</a> : <Link to={'/signin'} className="btn">Sign In</Link>
+                        user ? <>
+                            <div className="tooltip tooltip-bottom tooltip-primary" data-tip={`${user.displayName}`}>
+                                <button className="avatar">
+                                    <div className="ring-primary ring-offset-base-100 w-9 mr-4 rounded-full ring-2 ring-offset-2">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </button>
+                            </div>
+
+                            <a onClick={handleSignOut} className="btn">Sign Out</a>
+                        </>
+                            : <>
+                            <Link to={'/signin'} className="btn mr-3">Sign In</Link>
+
+                            <Link to={'/signup'} className="btn">Sign Up</Link>
+                            </>
                     }
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
