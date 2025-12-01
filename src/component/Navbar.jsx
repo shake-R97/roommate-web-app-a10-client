@@ -43,7 +43,7 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
                             <li><NavLink className='text-[17px]' to={'/addtofindroommate'}>Add to Find Roommate</NavLink></li>
-                            <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
+                            <li><NavLink className='text-[17px]' to={'/browse-listing'}>Browse Listing</NavLink></li>
                             <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                         </ul>
                     </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink className='text-[17px]' to={'/'}>Home</NavLink></li>
                         <li><NavLink className='text-[17px]' to={'/addtofindroommate'}>Add to Find Roommate</NavLink></li>
-                        <li><NavLink className='text-[17px]' to={'/listing'}>Browse Listing</NavLink></li>
+                        <li><NavLink className='text-[17px]' to={'/browse-listing'}>Browse Listing</NavLink></li>
                         <li><NavLink className='text-[17px]' to={'/mylistings'}>My Listing</NavLink></li>
                     </ul>
                 </div>

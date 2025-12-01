@@ -14,11 +14,9 @@ const SignUp = () => {
 
         const form = e.target;
         const formData = new FormData(form);
-        const NewUserData = Object.fromEntries(formData.entries());
+        const {email , password, ...NewUserData} = Object.fromEntries(formData.entries());
         const name = formData.get('name');
-        const email = formData.get('email');
         const photo = formData.get('photo');
-        const password = formData.get('password');
         console.log(NewUserData);
         console.log(name, email);
 
@@ -30,6 +28,22 @@ const SignUp = () => {
                 updateUserProfile({displayName: name , photoURL: photo})
                 .then(()=> {
                     setUser({...user , displayName: name , photoURL: photo})
+
+
+                // save user info to the db
+                fetch('http://localhost:3000/users',{
+                    method: 'POST',
+                    headers:{
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(NewUserData) 
+                })
+                .then((res)=> res.json())
+                .then(data=>{
+                    console.log('after added to the mongodb', data);
+                })
+
+
             })
                 .catch((error)=>{
                     console.log(error);

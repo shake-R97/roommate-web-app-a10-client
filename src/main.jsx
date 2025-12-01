@@ -13,6 +13,9 @@ import AuthProvider from './context/AuthProvider.jsx';
 import PrivateRouteProvider from './component/private-pages/PrivateRouteProvider.jsx';
 import FindRoommate from './component/private-pages/FindRoommate.jsx';
 import MyListing from './component/private-pages/MyListing.jsx';
+import RoommateDetails from './component/pages/RoommateDetails.jsx';
+import BrowseListing from './component/pages/BrowseListing.jsx';
+import UpdatePost from './component/pages/UpdatePost.jsx';
 
 
 
@@ -25,6 +28,13 @@ const router = createBrowserRouter([
         index: true,
         loader: ()=> fetch('http://localhost:3000/sorted-roommates'),
         Component: Home,
+      },
+      {
+        path: '/matedetails/:id',
+        loader: ({params})=> fetch(`http://localhost:3000/single-mate/${params.id}`),
+        element:<PrivateRouteProvider>
+          <RoommateDetails></RoommateDetails>
+        </PrivateRouteProvider>,
       },
       // authentication routes
       {
@@ -43,9 +53,24 @@ const router = createBrowserRouter([
         </PrivateRouteProvider>
       },
       {
+        path: '/browse-listing',
+        loader:()=> fetch('http://localhost:3000/all-roommates'),
+        element:<PrivateRouteProvider>
+                <BrowseListing></BrowseListing>
+        </PrivateRouteProvider>,
+      },
+      {
         path: '/mylistings',
+        loader: ()=> fetch('http://localhost:3000/all-roommates'),
         element:<PrivateRouteProvider>
               <MyListing></MyListing>
+        </PrivateRouteProvider>
+      },
+      {
+        path:'/update-post/:id',
+        loader: ({params})=> fetch(`http://localhost:3000/single-mate/${params.id}`),
+        element:<PrivateRouteProvider>
+          <UpdatePost></UpdatePost>
         </PrivateRouteProvider>
       }
 

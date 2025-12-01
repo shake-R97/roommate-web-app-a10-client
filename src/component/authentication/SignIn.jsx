@@ -81,7 +81,7 @@ const SignIn = () => {
             className="hero min-h-screen bg-linear-to-t from-[#3338A0] to-zinc-300"
             style={{
                 backgroundImage:
-                    "linear-gradient(to top, rgba(51,56,160,0.2)),url('/sliderImg/a-chosen-soul-FnGZcsmeD2U-unsplash.jpg')",
+                    "linear-gradient(to top, rgba(51,56,160,0.2)),url('/sliderImg/pexels-apasaric-1906228.jpg')",
             }}
         >
             {/* <div className="hero-overlay"></div> */}
@@ -89,7 +89,7 @@ const SignIn = () => {
                 <div className="hidden md:block rounded-r-[12px] md:w-[62%] lg:w-[74%] h-full bg-cover bg-center lg:text-left"
                     style={
                         {
-                            backgroundImage: "url('/sliderImg/a-chosen-soul-FnGZcsmeD2U-unsplash.jpg')",
+                            backgroundImage: "url('/sliderImg/pexels-apasaric-1906228.jpg')",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundRepeat: "no-repeat",
