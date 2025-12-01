@@ -1,16 +1,63 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🏡 Roommate Finder
 
-Currently, two official plugins are available:
+A simple React + Node.js platform to help users find compatible roommates based on location, budget, and lifestyle.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 Live Site
 
-## React Compiler
+https://your-live-site-url.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⭐ Features
 
-## Expanding the ESLint configuration
+🔐 Email/Password & Google Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🏘️ Add Roommate Listing (Private Route)
+
+📄 Browse All Listings from Database
+
+❤️ Details Page with Like Button (Private Route)
+
+✏️ Update & Delete Your Own Listings
+
+📱 Fully Responsive (Mobile / Tablet / Desktop)
+
+📦 Tech Stack
+
+React, React Router
+
+Firebase Authentication
+
+Node.js, Express.js, MongoDB
+
+TailwindCSS, DaisyUI
+
+🚀 Server & Client Deployment
+
+Client: Netlify / Surge / Firebase
+
+Server: Vercel
+
+🔒 Environment Variables
+
+Store the following in .env:
+
+Firebase config keys
+
+MongoDB credentials
+
+📄 Pages
+
+Home
+
+Add to Find Roommate (Private)
+
+Browse Listings
+
+My Listings (Private)
+
+Details (Private)
+
+Login / Signup
+
+404 Page
