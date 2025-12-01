@@ -20,7 +20,7 @@ const UpdatePost = () => {
 
         // send updatedPost to the db
 
-        fetch(`http://localhost:3000/update-post/${_id}`, {
+        fetch(`https://roommate-web-a10-server.vercel.app/update-post/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

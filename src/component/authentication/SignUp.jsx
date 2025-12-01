@@ -31,7 +31,7 @@ const SignUp = () => {
 
 
                 // save user info to the db
-                fetch('http://localhost:3000/users',{
+                fetch('https://roommate-web-a10-server.vercel.app/users',{
                     method: 'POST',
                     headers:{
                         'content-type': 'application/json'

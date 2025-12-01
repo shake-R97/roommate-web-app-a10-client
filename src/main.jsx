@@ -26,12 +26,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: ()=> fetch('http://localhost:3000/sorted-roommates'),
+        loader: ()=> fetch('https://roommate-web-a10-server.vercel.app/sorted-roommates'),
         Component: Home,
       },
       {
         path: '/matedetails/:id',
-        loader: ({params})=> fetch(`http://localhost:3000/single-mate/${params.id}`),
+        loader: ({params})=> fetch(`https://roommate-web-a10-server.vercel.app/single-mate/${params.id}`),
         element:<PrivateRouteProvider>
           <RoommateDetails></RoommateDetails>
         </PrivateRouteProvider>,
@@ -54,21 +54,21 @@ const router = createBrowserRouter([
       },
       {
         path: '/browse-listing',
-        loader:()=> fetch('http://localhost:3000/all-roommates'),
+        loader:()=> fetch('https://roommate-web-a10-server.vercel.app/all-roommates'),
         element:<PrivateRouteProvider>
                 <BrowseListing></BrowseListing>
         </PrivateRouteProvider>,
       },
       {
         path: '/mylistings',
-        loader: ()=> fetch('http://localhost:3000/all-roommates'),
+        loader: ()=> fetch('https://roommate-web-a10-server.vercel.app/all-roommates'),
         element:<PrivateRouteProvider>
               <MyListing></MyListing>
         </PrivateRouteProvider>
       },
       {
         path:'/update-post/:id',
-        loader: ({params})=> fetch(`http://localhost:3000/single-mate/${params.id}`),
+        loader: ({params})=> fetch(`https://roommate-web-a10-server.vercel.app/single-mate/${params.id}`),
         element:<PrivateRouteProvider>
           <UpdatePost></UpdatePost>
         </PrivateRouteProvider>

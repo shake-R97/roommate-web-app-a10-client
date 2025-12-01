@@ -26,7 +26,7 @@ const MyListing = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-            fetch(`http://localhost:3000/deletePost/${id}`,{
+            fetch(`https://roommate-web-a10-server.vercel.app/deletePost/${id}`,{
                 method:'DELETE',
             })
             .then(res=> res.json())
