@@ -7,7 +7,7 @@ const BrowseListing = () => {
     console.log(allListings);
 
     return (
-        <div>
+        <div className='mt-10 mb-28'>
             <div className="overflow-x-auto ">
                 <table className="table m-2.5">
                     {/* head */}

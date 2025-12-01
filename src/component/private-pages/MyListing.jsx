@@ -46,7 +46,7 @@ const MyListing = () => {
 
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto min-h-screen">
             <table className="table mt-3">
                 {/* head */}
                 <thead>
